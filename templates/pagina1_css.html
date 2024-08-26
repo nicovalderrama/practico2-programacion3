@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Vuelos - Compañía Argentina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: "Kanit", sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        h1,
+        h2 {
+            font-family: "PT Serif", serif;
+            font-weight: 700;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+        }
+
+        .form-control,
+        .form-select {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #007bff;
+            box-shadow: none;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .btn {
+            border-radius: 4px;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .form-container {
+            padding: 1rem;
+        }
+
+        .form-container fieldset {
+            border: none;
+        }
+
+        .form-container legend {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center bg-success p-2 text-light bg-opacity-50 m-0">Compañía Argentina</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg bg-secondary bg-opacity-50">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Sobre nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Gestión de vuelos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Consultar vuelos disponibles</a></li>
+                            <li><a class="dropdown-item" href="#">Ver reservas realizadas</a></li>
+                            <li><a class="dropdown-item" href="#">Eliminar reservas realizadas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form action="pagina2.html">
+                        <fieldset>
+                            <legend>Buscar vuelos disponibles</legend>
+                            <div class="mb-3">
+                                <label for="origen" class="form-label">Origen</label>
+                                <select class="form-select" name="origen" id="origen">
+                                    <option value="cordoba">Córdoba</option>
+                                    <option value="mendoza" selected>Mendoza</option>
+                                    <option value="tucuman">Tucumán</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="destino" class="form-label">Destino</label>
+                                <select class="form-select" name="destino" id="destino">
+                                    <option value="cordoba" selected>Córdoba</option>
+                                    <option value="mendoza">Mendoza</option>
+                                    <option value="tucuman">Tucumán</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="fecha" class="form-label">Fecha de vuelo</label>
+                                <input type="date" class="form-control" name="fecha" id="fecha">
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                <button type="reset" class="btn btn-secondary">Cancelar</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div id="carouselExampleControls" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/img/cba.jpg" class="d-block w-100" alt="Imagen 1" height="400px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/img/mendoza.jpg" class="d-block w-100" alt="Imagen 2" height="400px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/img/tucuman.jpg" class="d-block w-100" alt="Imagen 3" height="400px">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center mt-5 bg-success p-2 text-light bg-opacity-50">
+        <p>&copy; 2024 Compañía Argentina. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
